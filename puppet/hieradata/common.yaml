@@ -1,3 +1,5 @@
 ---
 welcome: 'This is: p4h inside of: Oh My Vagrant! (https://ttboj.wordpress.com/)'
 # vim:expandtab ts=8 sw=8 sta
+
+p4h::lesson7::a: 'notatest'

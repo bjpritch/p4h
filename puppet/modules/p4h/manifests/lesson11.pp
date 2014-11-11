@@ -17,7 +17,9 @@
 
 # README: this is a module built for use with: Oh My Vagrant!
 
-class p4h::lesson11() {
+class p4h::lesson11(
+  $test = 'test'
+) {
 
 	file { '/root/README':
 		content => "##lesson11
@@ -38,7 +40,15 @@ Bonus:
 Happy hacking!\n",
 	}
 
-	# XXX: write your code here...
+	file {'/root/test':
+    content => 'test',
+    alias => ["t-${test}"],
+  }
+
+  file {'/root/test2':
+    content => 'test',
+    alias => ["t2-${test}"],
+  }
 
 }
 
