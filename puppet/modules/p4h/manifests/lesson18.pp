@@ -18,6 +18,7 @@
 # README: this is a module built for use with: Oh My Vagrant!
 
 class p4h::lesson18() {
+  include common::again
 
 	file { '/root/README':
 		content => "##lesson18
@@ -40,9 +41,18 @@ Level 42:
 
 Happy hacking!\n",
 	}
+  $hash = sha1(generate('/bin/date', '+%H:%M:%S'))
+  #$file_count = <% Dir[File.join('/root', '**', '*')].count { |file| File.file?(file) } %>
 
-	# XXX: write your code here...
-
+  file {"/root/test-${hash}":
+    content => "test",
+    notify => Exec['again'],
+    #notify => $file_count ? {
+    #  20 => undef,
+    #  default => Exec['again'],
+    #}
+  }
+	
 }
 
 # vim: ts=8
