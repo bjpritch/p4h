@@ -45,8 +45,16 @@ Level 42:
 
 Happy hacking!\n",
 	}
-
-	# XXX: write your code here...
+  if $hostname == 'lesson13-a' {
+	 @@file {'/root/test-for-13':
+      content => 'test',
+      tag => 'ben',
+    }
+  }
+  else {
+    File <<| tag == 'ben' |>> {
+    }
+  }
 
 }
 
