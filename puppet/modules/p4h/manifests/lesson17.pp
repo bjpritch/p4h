@@ -17,7 +17,9 @@
 
 # README: this is a module built for use with: Oh My Vagrant!
 
-class p4h::lesson17() {
+class p4h::lesson17(
+  $package = "docker-io"
+) {
 
 	file { '/root/README':
 		content => "##lesson17
@@ -45,7 +47,9 @@ Level 42:
 Happy hacking!\n",
 	}
 
-	# XXX: write your code here...
+	package {$package:
+    ensure => 'present',
+  }
 
 }
 
