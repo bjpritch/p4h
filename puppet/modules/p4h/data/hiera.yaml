@@ -1,0 +1,8 @@
+---
+:backends:
+  - yaml
+:yaml:
+  :datadir: /etc/puppet/modules/p4h/data/
+:hierarchy:
+  - tree/%{::osfamily}
+  - common
